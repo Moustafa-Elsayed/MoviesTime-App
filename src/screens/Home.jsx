@@ -1,6 +1,11 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import TrendingMovies from '../components/TrendingMovies';
+import MoviesList from '../components/MoviesList';
 const Home = () => {
+  const [trending, setTrending] = useState([1, 2, 3]);
+  const [upcaoming, setUpcoming] = useState([1, 2, 3]);
+  const [toprated, setToprated] = useState([1, 2, 3]);
   return (
     <View>
       <View style={styles.upperContent}>
@@ -17,19 +22,14 @@ const Home = () => {
           <Text>icon</Text>
         </View>
       </View>
+      {/* Movies */}
       <ScrollView style={styles.lowerContent}>
-        <View>
-          <Text>jsljdsd</Text>
-          <Text>jsljdsd</Text>
-          <Text>jsljdsd</Text>
-          <Text>jsljdsd</Text>
-        </View>
-        <View>
-          <Text>jsljdsd</Text>
-        </View>
-        <View>
-          <Text>jsljdsd</Text>
-        </View>
+        {/* trendingMovies */}
+        <TrendingMovies data={trending} />
+        {/* upComing Movies */}
+        <MoviesList title="UpComing" data={upcaoming} />
+        {/* TopRated  movies */}
+        <MoviesList title="UpComing" data={toprated} />
       </ScrollView>
     </View>
   );
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  lowerContent:{
-    backgroundColor:"gray",
+  lowerContent: {
+    paddingTop: 10,
   },
 });
