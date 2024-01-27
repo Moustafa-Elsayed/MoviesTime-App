@@ -1,9 +1,7 @@
 import axios from "axios";
-import { Path } from "react-native-svg";
 
 const apiKey = "3af62cd49f66cd24b91a6bc952cd925b";
 const baseUrl = "https://api.themoviedb.org/3";
-export const img=Path=>Path?`https://image.tmdb.org/t/p/w500${Path}`:null;
 
 // endPoint
 const trendingMoviesEndPoint = `${baseUrl}/trending/movie/day`;
