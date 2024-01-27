@@ -2,6 +2,7 @@ import { Dimensions, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Carousel from "react-native-snap-carousel";
 import MovieCard from "./MovieCard";
+import { COLORS } from '../constants';
 
 const { width, height } = Dimensions.get("window");
 
@@ -12,6 +13,7 @@ const TrendingMovies = ({data}) => {
       style={{
         fontSize: 20,
         paddingBottom: 10,
+        color:COLORS.white
       }}
     >
       Trending

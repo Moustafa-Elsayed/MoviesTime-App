@@ -1,14 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {COLORS, SIZES} from '../constants';
 
 const MoviesList = () => {
   return (
     <View>
-      <Text>MoviesList</Text>
+      <Text
+        style={{
+          color: COLORS.white,
+          fontSize: SIZES.large,
+        }}>
+        MoviesList
+      </Text>
     </View>
-  )
-}
+  );
+};
 
-export default MoviesList
+export default MoviesList;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

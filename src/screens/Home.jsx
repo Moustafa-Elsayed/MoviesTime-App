@@ -2,6 +2,8 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import TrendingMovies from '../components/TrendingMovies';
 import MoviesList from '../components/MoviesList';
+import { COLORS } from '../constants';
+
 const Home = () => {
   const [trending, setTrending] = useState([1, 2, 3]);
   const [upcaoming, setUpcoming] = useState([1, 2, 3]);
@@ -10,7 +12,7 @@ const Home = () => {
     <View>
       <View style={styles.upperContent}>
         <View>
-          <Text>icon</Text>
+          <Text style={styles.text}>icon</Text>
         </View>
         <View>
           <Text style={styles.text}>
@@ -19,13 +21,13 @@ const Home = () => {
           </Text>
         </View>
         <View>
-          <Text>icon</Text>
+          <Text style={styles.text}>icon</Text>
         </View>
       </View>
       {/* Movies */}
       <ScrollView style={styles.lowerContent}>
         {/* trendingMovies */}
-        <TrendingMovies data={trending} />
+        <TrendingMovies data={trending}  />
         {/* upComing Movies */}
         <MoviesList title="UpComing" data={upcaoming} />
         {/* TopRated  movies */}
@@ -46,4 +48,8 @@ const styles = StyleSheet.create({
   lowerContent: {
     paddingTop: 10,
   },
+text:{
+  color:COLORS.white,
+  fontSize:30
+}
 });

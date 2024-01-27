@@ -1,4 +1,7 @@
 {
   "name": "MoviesTime",
-  "displayName": "MoviesTime"
+  "displayName": "MoviesTime",
+  "plugins": [
+    "expo-font"
+  ]
 }
