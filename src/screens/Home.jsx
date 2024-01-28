@@ -2,8 +2,9 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import TrendingMovies from '../components/TrendingMovies';
 import MoviesList from '../components/MoviesList';
-import {COLORS} from '../constants';
-// import {AntDesign} from '@expo/vector-icons';
+import {COLORS,FONTS} from '../constants';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const Home = () => {
   const [trending, setTrending] = useState([1, 2, 3]);
   const [upcaoming, setUpcoming] = useState([1, 2, 3]);
@@ -12,7 +13,7 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.upperContent}>
         <View>
-            {/* <AntDesign name="stepforward" size={24} color="black" /> */}
+        <Icon name="bars" size={30} color="white" />          
         </View>
         <View>
           <Text style={styles.text}>
@@ -21,7 +22,8 @@ const Home = () => {
           </Text>
         </View>
         <View>
-          <Text style={styles.text}>icon</Text>
+        <Icon name="search" size={30} color="white" />          
+          
         </View>
       </View>
       {/* Movies */}
@@ -31,7 +33,7 @@ const Home = () => {
         {/* upComing Movies */}
         <MoviesList title="UpComing" data={upcaoming} />
         {/* TopRated  movies */}
-        <MoviesList title="Top Rated"  data={toprated} />
+        <MoviesList title="Top Rated" data={toprated} />
       </ScrollView>
     </View>
   );
@@ -58,5 +60,6 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.white,
     fontSize: 30,
+    fontFamily:FONTS.bold
   },
 });

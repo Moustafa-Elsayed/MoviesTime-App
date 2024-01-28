@@ -59,7 +59,7 @@ const MoviesList = ({title, data}) => {
             <TouchableOpacity key={index}>
               <View style={{marginRight: 10}}>
                 <Image
-                  source={require('../assets/images/nft08.jpg')}
+        source={require('../images/nft10.jpg')}
                   style={{
                     width: width * 0.33,
                     height: height * 0.22,
