@@ -20,7 +20,7 @@ const Home = () => {
         </View>
         <View>
           <Text style={styles.text}>
-            {/* <Text style={{color: 'orange'}}>M</Text> */}
+            <Text style={{color: 'orange'}}>M</Text>
             ovies
           </Text>
         </View>
@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.white,
     fontSize: 30,
-    
+    fontFamily:FONTS.bold
   },
 });

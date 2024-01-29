@@ -40,13 +40,15 @@ const MoviesList = ({title, data}) => {
               style={{
                 color: 'orange',
                 fontSize: SIZES.large,
+                paddingHorizontal:10
               }}>
               See All
             </Text>
           </View>
         </TouchableWithoutFeedback>
       </View>
-      <View>
+      <View
+      style={{paddingBottom:5}}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}

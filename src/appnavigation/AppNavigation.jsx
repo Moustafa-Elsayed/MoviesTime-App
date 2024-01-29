@@ -13,7 +13,7 @@ const AppNavigation = () => {
       <StatusBar style="light" animated={true} />
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Splash"
+          initialRouteName="Home"
           screenOptions={{
             headerShown: false,
           }}>
