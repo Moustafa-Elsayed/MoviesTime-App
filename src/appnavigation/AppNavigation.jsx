@@ -5,6 +5,7 @@ import Home from '../screens/Home';
 // app navigation
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
+import Splash from '../screens/Splash';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -12,11 +13,13 @@ const AppNavigation = () => {
       <StatusBar style="light" animated={true} />
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Splash"
           screenOptions={{
             headerShown: false,
           }}>
           <Stack.Screen name="App" component={Home} />
+          <Stack.Screen name="Splash" component={Splash} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </>
