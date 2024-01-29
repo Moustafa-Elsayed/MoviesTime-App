@@ -15,9 +15,9 @@ export const COLORS = {
   gray: "#ddd",
 };
 export const FONTS = {
-  bold: "Inter-Bold",
-  semiBold: "InterSemiBold",
-  medium: "InterMedium",
-  regular: "InterRegular",
-  light: "InterLight",
+  bold: "Roboto-Bold",
+  // semiBold: "InterSemiBold",
+  // medium: "InterMedium",
+  // regular: "InterRegular",
+  // light: "InterLight",
 };

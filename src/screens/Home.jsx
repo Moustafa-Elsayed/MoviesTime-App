@@ -1,8 +1,11 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
+// components
 import TrendingMovies from '../components/TrendingMovies';
 import MoviesList from '../components/MoviesList';
-import {COLORS,FONTS} from '../constants';
+// theme
+import {COLORS, FONTS} from '../constants';
+// icons
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Home = () => {
@@ -13,17 +16,16 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.upperContent}>
         <View>
-        <Icon name="bars" size={30} color="white" />          
+          <Icon name="bars" size={30} color="white" />
         </View>
         <View>
           <Text style={styles.text}>
-            <Text style={{color: 'orange'}}>M</Text>
+            {/* <Text style={{color: 'orange'}}>M</Text> */}
             ovies
           </Text>
         </View>
         <View>
-        <Icon name="search" size={30} color="white" />          
-          
+          <Icon name="search" size={30} color="white" />
         </View>
       </View>
       {/* Movies */}
@@ -60,6 +62,6 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.white,
     fontSize: 30,
-    fontFamily:FONTS.bold
+    
   },
 });
