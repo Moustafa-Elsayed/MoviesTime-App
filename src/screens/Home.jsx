@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.bg,
-    paddingHorizontal: 10,
     paddingVertical: 10,
   },
   upperContent: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: 15,
   },
   lowerContent: {
     paddingTop: 10,

@@ -9,15 +9,16 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {COLORS, SIZES} from '../constants';
+import {COLORS, FONTS, SIZES} from '../constants';
+import { useNavigation } from '@react-navigation/native';
 const {width, height} = Dimensions.get('window');
 const MoviesList = ({title, data}) => {
-  const moviesName = 'skdklhsdhlsdh';
+  const navigation=useNavigation();
+  const moviesName = 'skdklhsdhlssdsdsdh';
   return (
     <View
       style={{
-        paddingTop: 3,
-        paddingBottom: 3,
+        marginTop: 15,
       }}>
       <View
         style={{
@@ -25,12 +26,14 @@ const MoviesList = ({title, data}) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          paddingBottom: 10,
+          paddingBottom: 4,
         }}>
         <Text
           style={{
             color: COLORS.white,
             fontSize: SIZES.large,
+            fontFamily: FONTS.bold,
+            paddingHorizontal: 10,
           }}>
           {title}
         </Text>
@@ -40,38 +43,40 @@ const MoviesList = ({title, data}) => {
               style={{
                 color: 'orange',
                 fontSize: SIZES.large,
-                paddingHorizontal:10
+                paddingHorizontal: 10,
+                fontFamily:FONTS.semiBold
               }}>
               See All
             </Text>
           </View>
         </TouchableWithoutFeedback>
       </View>
-      <View
-      style={{paddingBottom:5}}>
+      <View style={{paddingBottom: 5}}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{paddingHorizontal: 10}}
           style={{
             flex: 1,
-         
           }}>
           {data.map((item, index) => (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity key={index} onPress={()=>{
+            navigation.navigate("Movies", item)
+            }}>
               <View style={{marginRight: 10}}>
                 <Image
-        source={require('../images/nft10.jpg')}
+                  source={require('../images/nft10.jpg')}
                   style={{
                     width: width * 0.33,
                     height: height * 0.22,
                     borderRadius: 10,
-                    marginBottom: 5,
+                    marginBottom: 10,
+                    marginTop: 5,
                   }}
                 />
-                <Text style={{color: 'white'}}>
+                <Text style={{color: 'white', fontFamily: FONTS.medium}}>
                   {moviesName.length > 14
-                    ? moviesName.slice(0, 14) + '...'
+                    ? moviesName.slice(0, 15) + '...'
                     : moviesName}
                 </Text>
               </View>

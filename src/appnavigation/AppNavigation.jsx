@@ -6,6 +6,7 @@ import Home from '../screens/Home';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Splash from '../screens/Splash';
+import MoviesScreen from '../screens/MoviesScreen';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -19,6 +20,8 @@ const AppNavigation = () => {
           }}>
           <Stack.Screen name="App" component={Home} />
           <Stack.Screen name="Splash" component={Splash} />
+          <Stack.Screen name="Movies" component={MoviesScreen} />
+
 
         </Stack.Navigator>
       </NavigationContainer>
