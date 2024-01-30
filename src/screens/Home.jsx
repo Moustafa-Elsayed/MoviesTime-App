@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.white,
     fontSize: 30,
-    fontFamily:FONTS.bold
+    fontFamily: FONTS.bold,
   },
 });
