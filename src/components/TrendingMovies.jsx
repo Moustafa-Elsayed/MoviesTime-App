@@ -2,7 +2,7 @@ import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Carousel from 'react-native-snap-carousel';
 import MovieCard from './MovieCard';
-import {COLORS, FONTS} from '../constants';
+import {COLORS, FONTS, SIZES} from '../constants';
 
 const {width, height} = Dimensions.get('window');
 
@@ -11,12 +11,11 @@ const TrendingMovies = ({data}) => {
     <View>
       <Text
         style={{
-          fontSize: 20,
+          fontSize: width > 400 ? SIZES.xLarge : SIZES.large,
           paddingBottom: 10,
           color: COLORS.white,
-          paddingHorizontal:10,
-          fontFamily:FONTS.bold,
-
+          paddingHorizontal: 10,
+          fontFamily: FONTS.bold,
         }}>
         Trending
       </Text>

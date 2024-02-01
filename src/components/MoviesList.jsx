@@ -17,9 +17,7 @@ const MoviesList = ({title, data}) => {
   const navigation = useNavigation();
   return (
     <View
-      style={{
-        marginTop: 15,
-      }}>
+      >
       <View
         style={{
           display: 'flex',
@@ -31,7 +29,7 @@ const MoviesList = ({title, data}) => {
         <Text
           style={{
             color: COLORS.white,
-            fontSize: SIZES.large,
+            fontSize:width>400?SIZES.xLarge : SIZES.large ,
             fontFamily: FONTS.bold,
             paddingHorizontal: 10,
           }}>
@@ -42,7 +40,7 @@ const MoviesList = ({title, data}) => {
             <Text
               style={{
                 color: 'orange',
-                fontSize: SIZES.large,
+                fontSize:width>400?SIZES.xLarge : SIZES.large ,
                 paddingHorizontal: 10,
                 fontFamily: FONTS.semiBold,
               }}>
@@ -51,13 +49,12 @@ const MoviesList = ({title, data}) => {
           </View>
         </TouchableWithoutFeedback>
       </View>
-      <View style={{paddingBottom: 5}}>
+      <View>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{paddingHorizontal: 10}}
           style={{
-            flex: 1,
           }}>
           {data.map((item, index) => (
             <TouchableOpacity
@@ -72,7 +69,7 @@ const MoviesList = ({title, data}) => {
                   }}
                   style={{
                     width: width * 0.33,
-                    height: height * 0.22,
+                    height: height * 0.25,
                     borderRadius: 10,
                     marginBottom: 10,
                     marginTop: 5,
@@ -83,9 +80,10 @@ const MoviesList = ({title, data}) => {
                     color: 'white',
                     fontFamily: FONTS.medium,
                     textAlign: 'center',
+                    fontSize: width > 400 ? 20 : 10,
                   }}>
                   {item?.title && item.title.length > 15
-                    ? `${item?.title.slice(0, 15)}...`
+                    ? `${item.title.slice(0, 10)}...`
                     : item?.title}
                 </Text>
               </View>

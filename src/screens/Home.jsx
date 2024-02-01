@@ -1,10 +1,10 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 // components
 import TrendingMovies from '../components/TrendingMovies';
 import MoviesList from '../components/MoviesList';
 // theme
-import {COLORS, FONTS} from '../constants';
+import {COLORS, FONTS, SIZES} from '../constants';
 // icons
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
@@ -13,6 +13,7 @@ import {
   fetchTrendingMovies,
   fetchUpcomingMovies,
 } from '../components/api/Moviesdb';
+const {width, height} = Dimensions.get('window');
 
 const Home = () => {
   const navigation = useNavigation();
@@ -36,7 +37,6 @@ const Home = () => {
   const getTopRatedMovies = async () => {
     const data = await fetchTopRatedMovies();
     if (data && data.results) setToprated(data.results);
-   
   };
   return (
     <View style={styles.container}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.white,
-    fontSize: 30,
+    fontSize: width > 400 ? SIZES.xLarge + 15 : SIZES.large,
     fontFamily: FONTS.bold,
   },
 });
