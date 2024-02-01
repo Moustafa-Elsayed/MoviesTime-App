@@ -41,12 +41,12 @@ export const fetchUpcomingMovies = () => {
 export const fetchTopRatedMovies = () => {
   return apicall(topRatedMoviesEndPoint, {api_key: apiKey});
 };
-export const fetchMoviesDetails = () => {
-  return apicall(MoviesDetailsEndPiont, {api_key: apiKey});
+export const fetchMoviesDetails = id => {
+  return apicall(MoviesDetailsEndPiont(id), {api_key: apiKey});
 };
-export const fetchMoviescredits = () => {
-  return apicall(MoviesCreidtEndPiont, {api_key: apiKey});
+export const fetchMoviescredits = id => {
+  return apicall(MoviesCreidtEndPiont(id), {api_key: apiKey});
 };
-export const fetchMoviesSimilar = () => {
-  return apicall(MoviessimilarEndPiont, {api_key: apiKey});
+export const fetchMoviesSimilar =id => {
+  return apicall(MoviessimilarEndPiont(id), {api_key: apiKey});
 };

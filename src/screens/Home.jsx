@@ -67,7 +67,7 @@ const Home = () => {
         {/* upComing Movies */}
         <MoviesList title="UpComing" data={upcaoming} />
         {/* TopRated  movies */}
-        <MoviesList title="Top Rated" data={toprated} />
+        {/* <MoviesList title="Top Rated" data={toprated} /> */}
       </ScrollView>
     </View>
   );

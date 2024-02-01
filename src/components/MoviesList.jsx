@@ -14,7 +14,6 @@ const {width, height} = Dimensions.get('window');
 import {useNavigation} from '@react-navigation/native';
 
 const MoviesList = ({title, data}) => {
-  console.log(data,"from movieslis");
   const navigation = useNavigation();
   return (
     <View

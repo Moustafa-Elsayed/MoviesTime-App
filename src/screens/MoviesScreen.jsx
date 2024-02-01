@@ -14,30 +14,19 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import Cast from '../components/Cast';
 import {useNavigation} from '@react-navigation/native';
-import {
-  fetchMoviesSimilar,
-  fetchMoviescredits,
-} from '../components/api/Moviesdb';
 
 const MoviesScreen = () => {
   const [isFovarite, setIsFovarite] = useState(false);
-  const [cast, setcast] = useState([]);
-  const [similarMovies, setSimilarMovies] = useState([]);
+  const [cast, setcast] = useState([1,2,3,4,5,6]);
+  const [similarMovies, setSimilarMovies] = useState([1,2,3,4]);
+
   const {width, height} = Dimensions.get('window');
   const navigation = useNavigation();
   const {params: item} = useRef();
   useEffect(() => {
-    getSimilarMovies();
-    getMoviesCredit();
+  
   }, [item]);
-  const getSimilarMovies = async () => {
-    const data = await fetchMoviesSimilar();
-    if (data && data.results) setSimilarMovies(data.results);
-  };
-  const getMoviesCredit = async () => {
-    const data = await fetchMoviescredits();
-    if (data && data.results) setcast(data.results);
-  };
+
   return (
     <ScrollView
       contentContainerStyle={{paddingBottom: 20}}
@@ -111,7 +100,6 @@ const MoviesScreen = () => {
               textAlign: 'center',
               fontWeight: 'bold',
             }}>
-            Lorem ipsum dolor sit amet
           </Text>
           <Text style={{fontSize: 20, color: 'gray', textAlign: 'center'}}>
             sdsdsdsdsdsd
