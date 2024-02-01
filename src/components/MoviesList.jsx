@@ -78,10 +78,15 @@ const MoviesList = ({title, data}) => {
                     marginTop: 5,
                   }}
                 />
-                <Text style={{color: 'white', fontFamily: FONTS.medium,textAlign:"center"}}>
-                {/* {item?.title.length > 20
-                    ? item?.title.slice(0, 15) + '..'
-                    : item?.title} */}
+                <Text
+                  style={{
+                    color: 'white',
+                    fontFamily: FONTS.medium,
+                    textAlign: 'center',
+                  }}>
+                  {item?.title && item.title.length > 15
+                    ? `${item?.title.slice(0, 15)}...`
+                    : item?.title}
                 </Text>
               </View>
             </TouchableOpacity>

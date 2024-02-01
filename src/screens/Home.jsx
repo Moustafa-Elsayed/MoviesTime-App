@@ -36,6 +36,7 @@ const Home = () => {
   const getTopRatedMovies = async () => {
     const data = await fetchTopRatedMovies();
     if (data && data.results) setToprated(data.results);
+   
   };
   return (
     <View style={styles.container}>
@@ -67,7 +68,7 @@ const Home = () => {
         {/* upComing Movies */}
         <MoviesList title="UpComing" data={upcaoming} />
         {/* TopRated  movies */}
-        {/* <MoviesList title="Top Rated" data={toprated} /> */}
+        <MoviesList title="Top Rated" data={toprated} />
       </ScrollView>
     </View>
   );

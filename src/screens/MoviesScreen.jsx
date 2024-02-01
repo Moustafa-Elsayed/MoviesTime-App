@@ -17,15 +17,13 @@ import {useNavigation} from '@react-navigation/native';
 
 const MoviesScreen = () => {
   const [isFovarite, setIsFovarite] = useState(false);
-  const [cast, setcast] = useState([1,2,3,4,5,6]);
-  const [similarMovies, setSimilarMovies] = useState([1,2,3,4]);
+  const [cast, setcast] = useState([1, 2, 3, 4, 5, 6]);
+  const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4, 5]);
 
   const {width, height} = Dimensions.get('window');
   const navigation = useNavigation();
   const {params: item} = useRef();
-  useEffect(() => {
-  
-  }, [item]);
+  useEffect(() => {}, [item]);
 
   return (
     <ScrollView
@@ -99,8 +97,7 @@ const MoviesScreen = () => {
               color: 'white',
               textAlign: 'center',
               fontWeight: 'bold',
-            }}>
-          </Text>
+            }}></Text>
           <Text style={{fontSize: 20, color: 'gray', textAlign: 'center'}}>
             sdsdsdsdsdsd
           </Text>
