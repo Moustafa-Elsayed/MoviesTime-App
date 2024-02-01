@@ -7,8 +7,10 @@ import MoviesList from '../components/MoviesList';
 import {COLORS, FONTS} from '../constants';
 // icons
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+  const navigation=useNavigation();
   const [trending, setTrending] = useState([1, 2, 3]);
   const [upcaoming, setUpcoming] = useState([1, 2, 3]);
   const [toprated, setToprated] = useState([1, 2, 3]);
@@ -25,7 +27,12 @@ const Home = () => {
           </Text>
         </View>
         <View>
-          <Icon name="search" size={30} color="white" />
+          <Icon name="search" size={30} color="white"
+          onPress={() => {
+              navigation.navigate("Search");
+            }}
+           />
+
         </View>
       </View>
       {/* Movies */}

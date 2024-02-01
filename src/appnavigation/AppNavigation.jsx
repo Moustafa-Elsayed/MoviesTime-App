@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {FONTS} from '../constants';
 import {Text} from 'react-native-svg';
 import Person from '../components/Person';
+import Search from '../components/Search';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -82,6 +83,15 @@ const AppNavigation = () => {
             }}
             name="Person"
             component={Person}
+          />
+            <Tab.Screen
+            options={{
+              tabBarIcon: () => (
+                <Icon name="file-movie-o" size={25} color="black" />
+              ),
+            }}
+            name="Search"
+            component={Search}
           />
         </Tab.Navigator>
       </NavigationContainer>
