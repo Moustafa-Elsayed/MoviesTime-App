@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import MoviesList from '../components/MoviesList';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
+import Cast from '../components/Cast';
 
 const MoviesScreen = () => {
   const [isFovarite, setIsFovarite] = useState(false);
@@ -141,7 +142,7 @@ const MoviesScreen = () => {
             </Text>
           </View>
           {/* cast */}
-          {/* <Cast cast={cast} navigation={navigation} /> */}
+          <Cast cast={cast} navigation={navigation} />
           {/* similiar movies */}
           <MoviesList
             title="Similar Movies"
