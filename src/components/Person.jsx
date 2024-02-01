@@ -11,12 +11,13 @@ import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS} from '../constants';
 import MoviesList from './MoviesList';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const Person = () => {
   const navigation = useNavigation();
   const {width, height} = Dimensions.get('window');
   const [isFovarite, setIsFovarite] = useState(false);
   const [movies, setMovies] = useState([1, 2, 3, 4]);
-  const [loading, setLoading] = useState(false);
 
   return (
     <ScrollView
@@ -46,7 +47,7 @@ const Person = () => {
           onPress={() => {
             navigation.goBack();
           }}>
-          {/* <AntDesign name="arrowleft" size={28} color="white" /> */}
+          <Icon name="arrow-left" size={30} color="white" />
         </TouchableOpacity>
         <TouchableOpacity
           style={{
@@ -59,11 +60,7 @@ const Person = () => {
           onPress={() => {
             setIsFovarite(!isFovarite);
           }}>
-          {/* <AntDesign
-            name="heart"
-            size={28}
-            color={isFovarite ? 'orange' : 'white'}
-          /> */}
+          <Icon name="heart-o" size={30} color="white" />
         </TouchableOpacity>
       </SafeAreaView>
       <View>

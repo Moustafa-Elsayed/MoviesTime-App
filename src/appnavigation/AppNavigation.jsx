@@ -49,7 +49,7 @@ const AppNavigation = () => {
               }
 
               // You can return any component that you like here!
-              return ;
+              return;
             },
             tabBarActiveTintColor: 'tomato',
             tabBarInactiveTintColor: 'gray',
@@ -74,9 +74,15 @@ const AppNavigation = () => {
             name="Movies"
             component={MoviesScreen}
           />
-          <Stack.Screen name="Person" component={Person} />
-
-         
+          <Tab.Screen
+            options={{
+              tabBarIcon: () => (
+                <Icon name="file-movie-o" size={25} color="black" />
+              ),
+            }}
+            name="Person"
+            component={Person}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </>
