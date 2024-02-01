@@ -3,18 +3,14 @@ import {StatusBar, View} from 'react-native';
 import Home from '../screens/Home';
 
 // app navigation
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import Splash from '../screens/Splash';
 import MoviesScreen from '../screens/MoviesScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {FONTS} from '../constants';
-import {Text} from 'react-native-svg';
+
 import Person from '../components/Person';
 import Search from '../components/Search';
+import {NavigationContainer} from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const AppNavigation = () => {
@@ -84,7 +80,7 @@ const AppNavigation = () => {
             name="Person"
             component={Person}
           />
-            <Tab.Screen
+          <Tab.Screen
             options={{
               tabBarIcon: () => (
                 <Icon name="file-movie-o" size={25} color="black" />

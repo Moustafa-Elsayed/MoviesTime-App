@@ -8,10 +8,10 @@ import {
   Text,
 } from 'react-native';
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {COLORS} from '../constants';
 import MoviesList from './MoviesList';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
 const Person = () => {
   const navigation = useNavigation();

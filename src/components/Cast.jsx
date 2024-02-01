@@ -48,12 +48,12 @@ const Cast = ({cast, navigation}) => {
 
                 <Text style={{color: 'white'}}>
                   {MoviesName.length > 14
-                    ? MoviesName.slice(0, 7) + '...'
+                    ? MoviesName.slice(0, 8) + '...'
                     : MoviesName}
                 </Text>
                 <Text style={{color: 'white'}}>
                   {MoviesName.length > 14
-                    ? MoviesName.slice(0, 7) + '...'
+                    ? MoviesName.slice(0, 8) + '...'
                     : MoviesName}
                 </Text>
               </TouchableOpacity>

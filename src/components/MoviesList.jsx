@@ -10,11 +10,12 @@ import {
 } from 'react-native';
 import React from 'react';
 import {COLORS, FONTS, SIZES} from '../constants';
-import { useNavigation } from '@react-navigation/native';
 const {width, height} = Dimensions.get('window');
+import {useNavigation} from '@react-navigation/native';
+
 const MoviesList = ({title, data}) => {
-  const navigation=useNavigation();
-  const moviesName = 'skdklhsdhlssdsdsdh';
+  console.log(data,"from movieslis");
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -44,7 +45,7 @@ const MoviesList = ({title, data}) => {
                 color: 'orange',
                 fontSize: SIZES.large,
                 paddingHorizontal: 10,
-                fontFamily:FONTS.semiBold
+                fontFamily: FONTS.semiBold,
               }}>
               See All
             </Text>
@@ -60,12 +61,16 @@ const MoviesList = ({title, data}) => {
             flex: 1,
           }}>
           {data.map((item, index) => (
-            <TouchableOpacity key={index} onPress={()=>{
-            navigation.navigate("Movies", item)
-            }}>
+            <TouchableOpacity
+              key={index}
+              onPress={() => {
+                navigation.navigate('Movies', item);
+              }}>
               <View style={{marginRight: 10}}>
                 <Image
-                  source={require('../images/nft10.jpg')}
+                  source={{
+                    uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                  }}
                   style={{
                     width: width * 0.33,
                     height: height * 0.22,
@@ -74,10 +79,10 @@ const MoviesList = ({title, data}) => {
                     marginTop: 5,
                   }}
                 />
-                <Text style={{color: 'white', fontFamily: FONTS.medium}}>
-                  {moviesName.length > 14
-                    ? moviesName.slice(0, 15) + '...'
-                    : moviesName}
+                <Text style={{color: 'white', fontFamily: FONTS.medium,textAlign:"center"}}>
+                {/* {item?.title.length > 20
+                    ? item?.title.slice(0, 15) + '..'
+                    : item?.title} */}
                 </Text>
               </View>
             </TouchableOpacity>

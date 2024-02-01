@@ -11,7 +11,8 @@ import {
   } from "react-native";
   import React, { useState } from "react";
   import { COLORS } from "../constants";
-  import { useNavigation } from "@react-navigation/native";
+  import { useNavigation } from '@react-navigation/native';
+
   const Search = () => {
     const [result, setResult] = useState([1,2,3,4,5,6]);
     const { width, height } = Dimensions.get("window");

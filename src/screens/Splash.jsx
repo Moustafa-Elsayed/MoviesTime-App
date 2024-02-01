@@ -1,9 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React, { useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react';
 
 const Splash = () => {
-  const navigation=useNavigation();
 
 
   return (

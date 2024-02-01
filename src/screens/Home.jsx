@@ -1,5 +1,5 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // components
 import TrendingMovies from '../components/TrendingMovies';
 import MoviesList from '../components/MoviesList';
@@ -7,13 +7,36 @@ import MoviesList from '../components/MoviesList';
 import {COLORS, FONTS} from '../constants';
 // icons
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import {
+  fetchTopRatedMovies,
+  fetchTrendingMovies,
+  fetchUpcomingMovies,
+} from '../components/api/Moviesdb';
 
 const Home = () => {
-  const navigation=useNavigation();
-  const [trending, setTrending] = useState([1, 2, 3]);
-  const [upcaoming, setUpcoming] = useState([1, 2, 3]);
-  const [toprated, setToprated] = useState([1, 2, 3]);
+  const navigation = useNavigation();
+  const [trending, setTrending] = useState([]);
+  const [upcaoming, setUpcoming] = useState([]);
+  const [toprated, setToprated] = useState([]);
+  useEffect(() => {
+    getTrendingMovies();
+    getUpcomingMovies();
+    getTopRatedMovies();
+  }, []);
+  // fetch Api
+  const getTrendingMovies = async () => {
+    const data = await fetchTrendingMovies();
+    if (data && data.results) setTrending(data.results);
+  };
+  const getUpcomingMovies = async () => {
+    const data = await fetchUpcomingMovies();
+    if (data && data.results) setUpcoming(data.results);
+  };
+  const getTopRatedMovies = async () => {
+    const data = await fetchTopRatedMovies();
+    if (data && data.results) setToprated(data.results);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.upperContent}>
@@ -27,12 +50,14 @@ const Home = () => {
           </Text>
         </View>
         <View>
-          <Icon name="search" size={30} color="white"
-          onPress={() => {
-              navigation.navigate("Search");
+          <Icon
+            name="search"
+            size={30}
+            color="white"
+            onPress={() => {
+              navigation.navigate('Search');
             }}
-           />
-
+          />
         </View>
       </View>
       {/* Movies */}

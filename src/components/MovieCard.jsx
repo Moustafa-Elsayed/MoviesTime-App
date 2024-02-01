@@ -6,7 +6,7 @@ const MovieCard = ({item}) => {
   return (
     <TouchableWithoutFeedback>
       <Image
-        source={require('../images/nft10.jpg')}
+        source={{uri:`https://image.tmdb.org/t/p/w500${item.poster_path}`}}
         style={{
           width: width * 0.6,
           height: height * 0.4,
