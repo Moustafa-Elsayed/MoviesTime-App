@@ -8,12 +8,9 @@ const trendingMoviesEndPoint = `${baseUrl}/trending/movie/day`;
 const upComingMoviesEndPoint = `${baseUrl}/movie/upcoming`;
 const topRatedMoviesEndPoint = `${baseUrl}/movie/top_rated`;
 // dynamicendpiont
-const MoviesDetailsEndPiont=id=>`${baseUrl}/movie/${id}`
-const MoviesCreidtEndPiont=id=>`${baseUrl}/movie/${id}/credits`
-const MoviessimilarEndPiont=id=>`${baseUrl}/movie/${id}/similar`
-
-
-
+const MoviesDetailsEndPiont = id => `${baseUrl}/movie/${id}`;
+const MoviesCreidtEndPiont = id => `${baseUrl}/movie/${id}/credits`;
+const MoviessimilarEndPiont = id => `${baseUrl}/movie/${id}/similar`;
 
 const apicall = async (endPoint, params) => {
   const options = {
@@ -47,6 +44,6 @@ export const fetchMoviesDetails = id => {
 export const fetchMoviescredits = id => {
   return apicall(MoviesCreidtEndPiont(id), {api_key: apiKey});
 };
-export const fetchMoviesSimilar =id => {
+export const fetchMoviesSimilar = id => {
   return apicall(MoviessimilarEndPiont(id), {api_key: apiKey});
 };

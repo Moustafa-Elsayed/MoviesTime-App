@@ -2,7 +2,6 @@ import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import React, {useState} from 'react';
 const Cast = ({cast, navigation}) => {
   let MoviesName = 'hdhshdshkshdhdhshdshkshd';
-
   return (
     <View style={{marginVertical: 6}}>
       <Text

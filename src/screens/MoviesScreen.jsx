@@ -7,24 +7,36 @@ import {
   Image,
   Text,
 } from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {COLORS} from '../constants';
 import MoviesList from '../components/MoviesList';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import Cast from '../components/Cast';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {fetchMoviesDetails, fetchMoviescredits} from '../components/api/Moviesdb';
 
 const MoviesScreen = () => {
   const [isFovarite, setIsFovarite] = useState(false);
-  const [cast, setcast] = useState([1, 2, 3, 4, 5, 6]);
-  const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4, 5]);
-
+  const [cast, setcast] = useState([1,2,3]);
+  const [similarMovies, setSimilarMovies] = useState([]);
+  const [movies, setMovies] = useState({});
   const {width, height} = Dimensions.get('window');
   const navigation = useNavigation();
-  const {params: item} = useRef();
-  useEffect(() => {}, [item]);
-
+  const {params: item} = useRoute();
+  useEffect(() => {
+    getgMoviesDetials();
+    getCreditMovies();
+  }, [item]);
+  // get api
+  const getgMoviesDetials = async id => {
+    const data = await fetchMoviesDetails(id);
+    if (data && data.results) setMovies(data.results);
+  };
+  const getCreditMovies=async id => {
+    const data = await fetchMoviescredits(id);
+    if (data && data.results) setcast(data.results);
+  };
   return (
     <ScrollView
       contentContainerStyle={{paddingBottom: 20}}
@@ -73,7 +85,9 @@ const MoviesScreen = () => {
         </SafeAreaView>
         <View>
           <Image
-            source={require('../images/nft04.jpg')}
+              source={{
+                uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+              }}
             style={{
               width,
               height: height * 0.55,
@@ -99,23 +113,25 @@ const MoviesScreen = () => {
               fontWeight: 'bold',
             }}></Text>
           <Text style={{fontSize: 20, color: 'gray', textAlign: 'center'}}>
-            sdsdsdsdsdsd
+            {item?.original_title}
           </Text>
           <View
             style={{
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              flexDirection: 'row',
+              flexDirection: 'column',
             }}>
-            <Text style={{fontSize: 20, color: 'gray', textAlign: 'center'}}>
-              ssdsd{' '}
+            <Text
+              style={{
+                fontSize: 20,
+                color: 'gray',
+                textAlign: 'center',
+              }}>
+              {item?.popularity}
             </Text>
             <Text style={{fontSize: 20, color: 'gray', textAlign: 'center'}}>
-              ssdsd{' '}
-            </Text>
-            <Text style={{fontSize: 20, color: 'gray', textAlign: 'center'}}>
-              sdsd{' '}
+              {item?.overview}
             </Text>
           </View>
           <Text
