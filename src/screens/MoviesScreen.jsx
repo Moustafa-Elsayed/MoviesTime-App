@@ -72,7 +72,7 @@ const MoviesScreen = () => {
             onPress={() => {
               navigation.goBack();
             }}>
-            <Icon name="arrow-left" size={30} color="white" />
+            <Icon name="arrow-left" size={30} color="black" />
           </TouchableOpacity>
           <TouchableOpacity
             style={{

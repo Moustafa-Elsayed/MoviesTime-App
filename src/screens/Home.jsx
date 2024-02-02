@@ -1,4 +1,11 @@
-import {Dimensions, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Dimensions,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 // components
 import TrendingMovies from '../components/TrendingMovies';
@@ -81,7 +88,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.bg,
     paddingVertical: 10,
-  },
+    paddingTop: StatusBar.currentHeight + 10  },
   upperContent: {
     display: 'flex',
     flexDirection: 'row',

@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 const AppNavigation = () => {
   return (
     <>
-      <StatusBar style="light" animated={true} />
+      <StatusBar style="light" animated={true} translucent={true} backgroundColor="transparent"/>
       {/* <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Home"
