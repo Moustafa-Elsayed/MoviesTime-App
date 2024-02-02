@@ -72,7 +72,7 @@ const MoviesScreen = () => {
             onPress={() => {
               navigation.goBack();
             }}>
-            <Icon name="arrow-left" size={30} color="black" />
+            <Icon name="arrow-left" size={30} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
             style={{
@@ -155,11 +155,11 @@ const MoviesScreen = () => {
         {/* cast */}
         <Cast cast={cast} navigation={navigation}  />
         {/* similiar movies */}
-        <MoviesList
+        {/* <MoviesList
           title="Similar Movies"
           hiddenSeeAll={true}
           data={similarMovies}
-        />
+        /> */}
       </View>
     </ScrollView>
   );

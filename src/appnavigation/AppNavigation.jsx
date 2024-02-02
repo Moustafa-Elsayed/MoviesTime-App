@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, View} from 'react-native';
+import {Dimensions, StatusBar, StyleSheet, View} from 'react-native';
 import Home from '../screens/Home';
 
 // app navigation
@@ -10,13 +10,19 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Person from '../components/Person';
 import Search from '../components/Search';
 import {NavigationContainer} from '@react-navigation/native';
+import {COLORS, FONTS, SIZES} from '../constants';
 
 const Tab = createBottomTabNavigator();
-
+const {width, height} = Dimensions.get('window');
 const AppNavigation = () => {
   return (
     <>
-      <StatusBar style="light" animated={true} translucent={true} backgroundColor="transparent"/>
+      <StatusBar
+        style="light"
+        animated={true}
+        translucent={true}
+        backgroundColor="transparent"
+      />
       {/* <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Home"
@@ -31,31 +37,25 @@ const AppNavigation = () => {
       <NavigationContainer>
         <Tab.Navigator
           initialRouteName="Home"
-          screenOptions={({route}) => ({
+          screenOptions={{
             headerShown: false,
-
-            tabBarIcon: ({focused, color, size}) => {
-              let iconName;
-
-              if (route.name === 'Home') {
-                iconName = focused
-                  ? 'ios-information-circle'
-                  : 'ios-information-circle-outline';
-              } else if (route.name === 'Settings') {
-                iconName = focused ? 'ios-list' : 'ios-list-outline';
-              }
-
-              // You can return any component that you like here!
-              return;
-            },
-            tabBarActiveTintColor: 'tomato',
+            tabBarStyle: styles.container,
+            tabBarItemStyle: styles.item,
+            tabBarActiveTintColor: '#0071ff',
             tabBarInactiveTintColor: 'gray',
-          })}>
+            tabBarLabelStyle: styles.labelItem,
+            keyboardAvoidingViewEnabled: true,
+          }}
+          safeAreaInsets={{bottom: 0}}>
           <Tab.Screen
             options={{
-              tabBarIcon: () => (
+              tabBarIcon: ({focused}) => (
                 <View>
-                  <Icon name="home" size={25} color="black" />
+                  <Icon
+                    name="home"
+                    size={29}
+                    color={focused ? '#0071ff' : 'gray'}
+                  />
                 </View>
               ),
             }}
@@ -64,8 +64,12 @@ const AppNavigation = () => {
           />
           <Tab.Screen
             options={{
-              tabBarIcon: () => (
-                <Icon name="file-movie-o" size={25} color="black" />
+              tabBarIcon: ({focused}) => (
+                <Icon
+                  name="file-movie-o"
+                  size={29}
+                  color={focused ? '#0071ff' : 'gray'}
+                />
               ),
             }}
             name="Movies"
@@ -73,18 +77,30 @@ const AppNavigation = () => {
           />
           <Tab.Screen
             options={{
-              tabBarIcon: () => (
-                <Icon name="file-movie-o" size={25} color="black" />
-              ),
+              tabBarVisible: false,
+              // tabBarIcon: ({focused}) => (
+              //   <Icon
+              //     name="file-movie-o"
+              //     size={29}
+              //     color={focused ? '#0071ff' : 'gray'}
+              //   />
+              // ),
+              tabBarButton: () => null, 
+
             }}
             name="Person"
             component={Person}
           />
           <Tab.Screen
             options={{
-              tabBarIcon: () => (
-                <Icon name="file-movie-o" size={25} color="black" />
-              ),
+              // tabBarIcon: ({focused}) => (
+              //   <Icon
+              //     name="search"
+              //     size={29}
+              //     color={focused ? '#0071ff' : 'gray'}
+              //   />
+              // ),
+              tabBarButton: () => null, 
             }}
             name="Search"
             component={Search}
@@ -96,3 +112,20 @@ const AppNavigation = () => {
 };
 
 export default AppNavigation;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.cardBg,
+    position: 'absolute',
+    width: width,
+    height: 70,
+    borderRadius: 5,
+  },
+  item: {
+    marginBottom: 5,
+  },
+  labelItem: {
+    fontFamily: FONTS.bold,
+    fontSize: SIZES.medium,
+  },
+});
