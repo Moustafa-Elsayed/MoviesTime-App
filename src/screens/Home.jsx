@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.white,
-    fontSize: width > 500 ? SIZES.xLarge + 15 : SIZES.large + 10s,
+    fontSize: width > 500 ? SIZES.xLarge + 15 : SIZES.large + 10,
     fontFamily: FONTS.bold,
   },
 });
