@@ -1,7 +1,8 @@
 import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 const Cast = ({cast, navigation}) => {
   let MoviesName = 'hdhshdshkshdhdhshdshkshd';
+  console.log(cast.name,"name");
   return (
     <View style={{marginVertical: 6}}>
       <Text
@@ -37,7 +38,9 @@ const Cast = ({cast, navigation}) => {
                     borderRadius: 50,
                   }}>
                   <Image
-                    source={require('../images/nft03.jpg')}
+                    source={{
+                      uri: `https://image.tmdb.org/t/p/w500${person?.profile_path}`,
+                    }}
                     style={{
                       width: 100,
                       height: 100,
@@ -46,14 +49,14 @@ const Cast = ({cast, navigation}) => {
                 </View>
 
                 <Text style={{color: 'white'}}>
-                  {MoviesName.length > 14
-                    ? MoviesName.slice(0, 8) + '...'
-                    : MoviesName}
+                  {person?.character.length > 14
+                    ? person?.character.slice(0, 8) + '...'
+                    : person?.character}
                 </Text>
                 <Text style={{color: 'white'}}>
-                  {MoviesName.length > 14
-                    ? MoviesName.slice(0, 8) + '...'
-                    : MoviesName}
+                  {person?.original_name.length > 14
+                    ? person?.original_name.slice(0, 10) + '...'
+                    : person?.original_name}
                 </Text>
               </TouchableOpacity>
             );

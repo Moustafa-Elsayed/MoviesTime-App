@@ -11,7 +11,7 @@ const TrendingMovies = ({data}) => {
     <View>
       <Text
         style={{
-          fontSize: width > 400 ? SIZES.xLarge : SIZES.large,
+          fontSize: width > 500 ? SIZES.xLarge : SIZES.large,
           paddingBottom: 10,
           color: COLORS.white,
           paddingHorizontal: 10,

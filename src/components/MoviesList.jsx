@@ -29,7 +29,7 @@ const MoviesList = ({title, data}) => {
         <Text
           style={{
             color: COLORS.white,
-            fontSize:width>400?SIZES.xLarge : SIZES.large ,
+            fontSize:width>500?SIZES.xLarge : SIZES.large ,
             fontFamily: FONTS.bold,
             paddingHorizontal: 10,
           }}>
@@ -40,7 +40,7 @@ const MoviesList = ({title, data}) => {
             <Text
               style={{
                 color: 'orange',
-                fontSize:width>400?SIZES.xLarge : SIZES.large ,
+                fontSize:width>500?SIZES.xLarge : SIZES.large ,
                 paddingHorizontal: 10,
                 fontFamily: FONTS.semiBold,
               }}>
@@ -80,7 +80,7 @@ const MoviesList = ({title, data}) => {
                     color: 'white',
                     fontFamily: FONTS.medium,
                     textAlign: 'center',
-                    fontSize: width > 400 ? 20 : 10,
+                    fontSize: width > 500 ? 20 : 15,
                   }}>
                   {item?.title && item.title.length > 15
                     ? `${item.title.slice(0, 10)}...`

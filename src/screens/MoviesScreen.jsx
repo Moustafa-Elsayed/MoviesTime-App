@@ -14,19 +14,20 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import Cast from '../components/Cast';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {fetchMoviesDetails, fetchMoviescredits} from '../components/api/Moviesdb';
+import {fetchMoviesDetails, fetchMoviesSimilar, fetchMoviescredits} from '../components/api/Moviesdb';
 
 const MoviesScreen = () => {
   const [isFovarite, setIsFovarite] = useState(false);
-  const [cast, setcast] = useState([1,2,3]);
+  const [cast, setcast] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
   const [movies, setMovies] = useState({});
   const {width, height} = Dimensions.get('window');
   const navigation = useNavigation();
   const {params: item} = useRoute();
   useEffect(() => {
-    getgMoviesDetials();
-    getCreditMovies();
+    getgMoviesDetials(item.id);
+    getCreditMovies(item.id);
+    getSimilarMovies(item.id)
   }, [item]);
   // get api
   const getgMoviesDetials = async id => {
@@ -35,7 +36,11 @@ const MoviesScreen = () => {
   };
   const getCreditMovies=async id => {
     const data = await fetchMoviescredits(id);
-    if (data && data.results) setcast(data.results);
+    if (data && data.cast) setcast(data.cast);
+  };
+  const getSimilarMovies=async id => {
+    const data = await fetchMoviesSimilar(id);
+    if (data && data.results) setSimilarMovies(data.results);
   };
   return (
     <ScrollView
@@ -148,7 +153,7 @@ const MoviesScreen = () => {
           </Text>
         </View>
         {/* cast */}
-        <Cast cast={cast} navigation={navigation} />
+        <Cast cast={cast} navigation={navigation}  />
         {/* similiar movies */}
         <MoviesList
           title="Similar Movies"

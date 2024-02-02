@@ -7,18 +7,33 @@ import {
   Image,
   Text,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {COLORS} from '../constants';
 import MoviesList from './MoviesList';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {fetchPersonDetails, fetchPersonSilimarMovies} from './api/Moviesdb';
 
 const Person = () => {
+  const {params: item} = useRoute();
+
   const navigation = useNavigation();
   const {width, height} = Dimensions.get('window');
   const [isFovarite, setIsFovarite] = useState(false);
-  const [movies, setMovies] = useState([1, 2, 3, 4]);
-
+  const [movies, setMovies] = useState([]);
+  const [person, setPerson] = useState({});
+  useEffect(() => {
+    getPersonDetials(item.id);
+    getPersonMovies(item.id);
+  }, [item]);
+  const getPersonDetials = async id => {
+    const data = await fetchPersonDetails(id);
+    if (data) setPerson(data);
+  };
+  const getPersonMovies = async id => {
+    const data = await fetchPersonSilimarMovies(id);
+if(data) 
+  };
   return (
     <ScrollView
       style={{flex: 1, paddingBottom: 40, backgroundColor: COLORS.bg}}>
@@ -71,7 +86,9 @@ const Person = () => {
             height: height * 0.44,
           }}>
           <Image
-            source={require('../images/nft03.jpg')}
+            source={{
+              uri: `https://image.tmdb.org/t/p/w500${person?.profile_path}`,
+            }}
             style={{
               width: width / 2,
               height: height / 4,
@@ -84,10 +101,10 @@ const Person = () => {
 
         <View style={{alignItems: 'center', marginBottom: 10}}>
           <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>
-            Jonf jsdh
+            {person?.name}
           </Text>
           <Text style={{color: 'gray', fontSize: 15, fontWeight: 'bold'}}>
-            lodhfhdf
+            {person?.known_for_department}
           </Text>
         </View>
         <View
@@ -128,7 +145,7 @@ const Person = () => {
               marginTop: 5,
             }}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Birthday</Text>
-            <Text style={{color: 'black'}}>12-10-2023</Text>
+            <Text style={{color: 'black'}}>{person?.birthday}</Text>
           </View>
           <View
             style={{
@@ -143,7 +160,7 @@ const Person = () => {
               marginTop: 5,
             }}>
             <Text style={{color: 'white', fontWeight: 'bold'}}>Kwown For</Text>
-            <Text style={{color: 'black'}}>Acting</Text>
+            <Text style={{color: 'black'}}>{person?.known_for_department}</Text>
           </View>
           <View
             style={{
@@ -159,7 +176,7 @@ const Person = () => {
             <Text style={{color: 'white', fontWeight: 'bold'}}>
               Popoularity
             </Text>
-            <Text style={{color: 'black'}}>64.52</Text>
+            <Text style={{color: 'black'}}>{person?.popularity}</Text>
           </View>
         </View>
         <View style={{paddingHorizontal: 10, marginTop: 10}}>
@@ -172,12 +189,7 @@ const Person = () => {
             }}>
             Biography
           </Text>
-          <Text style={{color: 'gray'}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            laudantium tempora quasi qui voluptates minus doloribus nulla error
-            iure. Iusto exercitationem ut nisi veniam quia officia excepturi,
-            libero dicta iure.
-          </Text>
+          <Text style={{color: 'gray'}}>{person?.biography}</Text>
         </View>
         {/* movies */}
         <MoviesList title="Movies" hiddenSeeAll={false} data={movies} />

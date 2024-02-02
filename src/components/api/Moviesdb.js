@@ -11,6 +11,8 @@ const topRatedMoviesEndPoint = `${baseUrl}/movie/top_rated`;
 const MoviesDetailsEndPiont = id => `${baseUrl}/movie/${id}`;
 const MoviesCreidtEndPiont = id => `${baseUrl}/movie/${id}/credits`;
 const MoviessimilarEndPiont = id => `${baseUrl}/movie/${id}/similar`;
+const personMoviesEndPiont=id=>`${baseUrl}/person/${id}`;
+const personSimilarMoviesEndPiont=id=>`${baseUrl}/person/${id}/movie_credits`
 
 const apicall = async (endPoint, params) => {
   const options = {
@@ -46,4 +48,10 @@ export const fetchMoviescredits = id => {
 };
 export const fetchMoviesSimilar = id => {
   return apicall(MoviessimilarEndPiont(id), {api_key: apiKey});
+};
+export const fetchPersonDetails = id => {
+  return apicall(personMoviesEndPiont(id), {api_key: apiKey});
+};
+export const fetchPersonSilimarMovies = id => {
+  return apicall(personSimilarMoviesEndPiont(id), {api_key: apiKey});
 };
