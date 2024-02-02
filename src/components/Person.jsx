@@ -20,20 +20,20 @@ const Person = () => {
   const navigation = useNavigation();
   const {width, height} = Dimensions.get('window');
   const [isFovarite, setIsFovarite] = useState(false);
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([1, 2, 3]);
   const [person, setPerson] = useState({});
   useEffect(() => {
     getPersonDetials(item.id);
-    getPersonMovies(item.id);
+    // getPersonMovies(item.id);
   }, [item]);
   const getPersonDetials = async id => {
     const data = await fetchPersonDetails(id);
-    if (data) setPerson(data);
+    if (data && data) setPerson(data);
   };
-  const getPersonMovies = async id => {
-    const data = await fetchPersonSilimarMovies(id);
-if(data) 
-  };
+  // const getPersonMovies = async id => {
+  //   const data = await fetchPersonSilimarMovies(id);
+  //   if (data && data.cast) setPerson(data.cast);
+  // };
   return (
     <ScrollView
       style={{flex: 1, paddingBottom: 40, backgroundColor: COLORS.bg}}>
@@ -192,7 +192,7 @@ if(data)
           <Text style={{color: 'gray'}}>{person?.biography}</Text>
         </View>
         {/* movies */}
-        <MoviesList title="Movies" hiddenSeeAll={false} data={movies} />
+        {/* <MoviesList title="Movies" hiddenSeeAll={false} data={movies} /> */}
       </View>
     </ScrollView>
   );
