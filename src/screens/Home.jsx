@@ -62,12 +62,12 @@ const Home = () => {
             <Icon name="bars" size={30} color="white" />
           </TouchableOpacity>
         </View>
-        <View>
+        <TouchableOpacity>
           <Text style={styles.text}>
             <Text style={{color: 'orange'}}>M</Text>
             ovies
           </Text>
-        </View>
+        </TouchableOpacity>
         <View>
           <Icon
             name="search"
