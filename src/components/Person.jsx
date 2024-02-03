@@ -139,7 +139,7 @@ const Person = () => {
                   marginTop: 5,
                 }}>
                 <Text style={{color: 'white', fontWeight: 'bold'}}>Gender</Text>
-                <Text style={{color: 'black'}}>Male</Text>
+                <Text style={{color: 'black'}}>{person?.gender===1? "female":"male"}</Text>
               </View>
               <View
                 style={{
