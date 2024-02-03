@@ -21,7 +21,7 @@ const Person = () => {
   const navigation = useNavigation();
   const {width, height} = Dimensions.get('window');
   const [isFovarite, setIsFovarite] = useState(false);
-  const [personMovies, setPersonMovies] = useState([1, 2, 3]);
+  const [personMovies, setPersonMovies] = useState([]);
   const [person, setPerson] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
