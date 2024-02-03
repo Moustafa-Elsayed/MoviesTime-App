@@ -8,12 +8,14 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import {COLORS, FONTS, SIZES} from '../constants';
 const {width, height} = Dimensions.get('window');
 import {useNavigation} from '@react-navigation/native';
+import Laoding from './Laoding';
 
 const MoviesList = ({title, data}) => {
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
   return (
     <View>
@@ -24,7 +26,7 @@ const MoviesList = ({title, data}) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           paddingBottom: 10,
-          paddingTop:10
+          paddingTop: 10,
         }}>
         <Text
           style={{
@@ -49,48 +51,52 @@ const MoviesList = ({title, data}) => {
           </View>
         </TouchableWithoutFeedback>
       </View>
-      <View>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{paddingHorizontal: 10}}
-          style={{}}>
-          {data.map((item, index) => (
-            <TouchableOpacity
-              key={index}
-              onPress={() => {
-                navigation.navigate('Movies', item);
-              }}>
-              <View style={{marginRight: 10}}>
-                <Image
-                  source={{
-                    uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-                  }}
-                  style={{
-                    width: width * 0.33,
-                    height: height * 0.25,
-                    borderRadius: 10,
-                    marginBottom: 10,
-                    marginTop: 5,
-                  }}
-                />
-                <Text
-                  style={{
-                    color: 'white',
-                    fontFamily: FONTS.medium,
-                    textAlign: 'center',
-                    fontSize: width > 500 ? 20 : 15,
-                    paddingBottom: title === 'Top Rated' ? 80 : 0,
-                  }}>
-                  {item?.title && item.title.length > 15
-                    ? `${item.title.slice(0, 10)}...`
-                    : item?.title}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
+      {loading ? (
+        <Laoding />
+      ) : (
+        <View>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{paddingHorizontal: 10}}
+            style={{}}>
+            {data.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => {
+                  navigation.navigate('Movies', item);
+                }}>
+                <View style={{marginRight: 10}}>
+                  <Image
+                    source={{
+                      uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+                    }}
+                    style={{
+                      width: width * 0.33,
+                      height: height * 0.25,
+                      borderRadius: 10,
+                      marginBottom: 10,
+                      marginTop: 5,
+                    }}
+                  />
+                  <Text
+                    style={{
+                      color: 'white',
+                      fontFamily: FONTS.medium,
+                      textAlign: 'center',
+                      fontSize: width > 500 ? 20 : 15,
+                      paddingBottom: title === 'Top Rated' ? 80 : 0,
+                    }}>
+                    {item?.title && item.title.length > 15
+                      ? `${item.title.slice(0, 10)}...`
+                      : item?.title}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+      )}
     </View>
   );
 };

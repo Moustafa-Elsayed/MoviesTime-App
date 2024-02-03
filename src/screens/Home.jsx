@@ -21,6 +21,7 @@ import {
   fetchTrendingMovies,
   fetchUpcomingMovies,
 } from '../components/api/Moviesdb';
+import Laoding from '../components/Laoding';
 const {width, height} = Dimensions.get('window');
 
 const Home = () => {
@@ -28,6 +29,8 @@ const Home = () => {
   const [trending, setTrending] = useState([]);
   const [upcaoming, setUpcoming] = useState([]);
   const [toprated, setToprated] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     getTrendingMovies();
     getUpcomingMovies();
@@ -72,17 +75,18 @@ const Home = () => {
         </View>
       </View>
       {/* Movies */}
-      <ScrollView style={styles.lowerContent}>
-        {/* trendingMovies */}
-        <TrendingMovies data={trending} />
-        {/* upComing Movies */}
-        <MoviesList title="UpComing" data={upcaoming} />
-        {/* TopRated  movies */}
-        <MoviesList
-          title="Top Rated"
-          data={toprated}
-        />
-      </ScrollView>
+      {loading ? (
+        <Laoding />
+      ) : (
+        <ScrollView style={styles.lowerContent}>
+          {/* trendingMovies */}
+          <TrendingMovies data={trending} />
+          {/* upComing Movies */}
+          <MoviesList title="UpComing" data={upcaoming} />
+          {/* TopRated  movies */}
+          <MoviesList title="Top Rated" data={toprated} />
+        </ScrollView>
+      )}
     </View>
   );
 };

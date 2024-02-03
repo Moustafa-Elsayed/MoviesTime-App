@@ -1,12 +1,15 @@
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
 import MovieCard from './MovieCard';
 import {COLORS, FONTS, SIZES} from '../constants';
+import Laoding from './Laoding';
 
 const {width, height} = Dimensions.get('window');
 
 const TrendingMovies = ({data}) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <View>
       <Text
@@ -19,16 +22,19 @@ const TrendingMovies = ({data}) => {
         }}>
         Trending
       </Text>
-
-      <Carousel
-        data={data}
-        renderItem={({item}) => <MovieCard item={item} />}
-        firstItem={1}
-        inactiveSlideOpacity={0.6}
-        sliderWidth={width}
-        itemWidth={width * 0.6}
-        slideStyle={{display: 'flex', alignItems: 'center'}}
-      />
+      {loading ? (
+        <Laoding />
+      ) : (
+        <Carousel
+          data={data}
+          renderItem={({item}) => <MovieCard item={item} />}
+          firstItem={1}
+          inactiveSlideOpacity={0.6}
+          sliderWidth={width}
+          itemWidth={width * 0.6}
+          slideStyle={{display: 'flex', alignItems: 'center'}}
+        />
+      )}
     </View>
   );
 };
