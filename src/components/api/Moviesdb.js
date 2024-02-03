@@ -7,12 +7,15 @@ const baseUrl = 'https://api.themoviedb.org/3';
 const trendingMoviesEndPoint = `${baseUrl}/trending/movie/day`;
 const upComingMoviesEndPoint = `${baseUrl}/movie/upcoming`;
 const topRatedMoviesEndPoint = `${baseUrl}/movie/top_rated`;
+const searchMoviesEndpiont = `${baseUrl}/search/movie?api_key=${apiKey}`;
+
 // dynamicendpiont
 const MoviesDetailsEndPiont = id => `${baseUrl}/movie/${id}`;
 const MoviesCreidtEndPiont = id => `${baseUrl}/movie/${id}/credits`;
 const MoviessimilarEndPiont = id => `${baseUrl}/movie/${id}/similar`;
 const personMoviesEndPiont = id => `${baseUrl}/person/${id}`;
-const personSimilarMoviesEndPiont = id =>`${baseUrl}/person/${id}/movie_credits`;
+const personSimilarMoviesEndPiont = id =>
+  `${baseUrl}/person/${id}/movie_credits`;
 
 const apicall = async (endPoint, params) => {
   const options = {
@@ -40,6 +43,9 @@ export const fetchUpcomingMovies = () => {
 export const fetchTopRatedMovies = () => {
   return apicall(topRatedMoviesEndPoint, {api_key: apiKey});
 };
+
+// dynamic by id
+
 export const fetchMoviesDetails = id => {
   return apicall(MoviesDetailsEndPiont(id), {api_key: apiKey});
 };
@@ -54,4 +60,7 @@ export const fetchPersonDetails = id => {
 };
 export const fetchPersonSilimarMovies = id => {
   return apicall(personSimilarMoviesEndPiont(id), {api_key: apiKey});
+};
+export const fetchSearchMovies = params => {
+  return apicall(searchMoviesEndpiont, params);
 };
