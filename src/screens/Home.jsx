@@ -29,7 +29,7 @@ const Home = () => {
   const [trending, setTrending] = useState([]);
   const [upcaoming, setUpcoming] = useState([]);
   const [toprated, setToprated] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getTrendingMovies();
@@ -40,14 +40,19 @@ const Home = () => {
   const getTrendingMovies = async () => {
     const data = await fetchTrendingMovies();
     if (data && data.results) setTrending(data.results);
+    setLoading(false)
   };
   const getUpcomingMovies = async () => {
     const data = await fetchUpcomingMovies();
     if (data && data.results) setUpcoming(data.results);
+    setLoading(false)
+
   };
   const getTopRatedMovies = async () => {
     const data = await fetchTopRatedMovies();
     if (data && data.results) setToprated(data.results);
+    setLoading(false)
+
   };
   return (
     <View style={styles.container}>
