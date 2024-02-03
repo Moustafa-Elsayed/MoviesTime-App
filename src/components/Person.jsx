@@ -23,7 +23,7 @@ const Person = () => {
   const [isFovarite, setIsFovarite] = useState(false);
   const [personMovies, setPersonMovies] = useState([1, 2, 3]);
   const [person, setPerson] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     getPersonDetials(item.id);
     getPersonMovies(item.id);
@@ -31,17 +31,17 @@ const Person = () => {
   const getPersonDetials = async id => {
     const data = await fetchPersonDetails(id);
     if (data && data) setPerson(data);
-    setLoading(false)
-
+    setLoading(false);
   };
   const getPersonMovies = async id => {
     const data = await fetchPersonSilimarMovies(id);
     if (data && data.cast) setPersonMovies(data.cast);
+    setLoading(false);
   };
 
   return (
     <ScrollView
-      style={{flex: 1, paddingBottom: 40, backgroundColor: COLORS.bg}}>
+      style={{flex: 1, paddingBottom: 40, backgroundColor: COLORS.cardBg}}>
       {loading ? (
         <Laoding />
       ) : (
@@ -208,7 +208,11 @@ const Person = () => {
               <Text style={{color: 'gray'}}>{person?.biography}</Text>
             </View>
             {/* movies */}
-            <MoviesList title="Movies" hiddenSeeAll={false} data={personMovies} />
+            <MoviesList
+              title="Movies"
+              hiddenSeeAll={false}
+              data={personMovies}
+            />
           </View>
         </>
       )}
