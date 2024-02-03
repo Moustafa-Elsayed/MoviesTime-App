@@ -4,6 +4,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
@@ -49,7 +50,9 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.upperContent}>
         <View>
-          <Icon name="bars" size={30} color="white" />
+          <TouchableOpacity >
+            <Icon name="bars" size={30} color="white" />
+          </TouchableOpacity>
         </View>
         <View>
           <Text style={styles.text}>
