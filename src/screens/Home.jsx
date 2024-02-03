@@ -50,7 +50,7 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.upperContent}>
         <View>
-          <TouchableOpacity >
+          <TouchableOpacity>
             <Icon name="bars" size={30} color="white" />
           </TouchableOpacity>
         </View>
@@ -78,7 +78,10 @@ const Home = () => {
         {/* upComing Movies */}
         <MoviesList title="UpComing" data={upcaoming} />
         {/* TopRated  movies */}
-        <MoviesList title="Top Rated" data={toprated} />
+        <MoviesList
+          title="Top Rated"
+          data={toprated}
+        />
       </ScrollView>
     </View>
   );

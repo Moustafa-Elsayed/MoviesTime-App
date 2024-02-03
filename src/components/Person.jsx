@@ -179,7 +179,7 @@ const Person = () => {
             <Text style={{color: 'black'}}>{person?.popularity}</Text>
           </View>
         </View>
-        <View style={{paddingHorizontal: 10, marginTop: 10}}>
+        <View style={{paddingHorizontal: 10, marginTop: 10,paddingBottom:20}}>
           <Text
             style={{
               color: 'white',

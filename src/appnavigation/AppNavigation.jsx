@@ -126,10 +126,10 @@ export default AppNavigation;
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: COLORS.cardBg,
-    backgroundColor: 'white',
+    backgroundColor: COLORS.cardBg,
+    // backgroundColor: 'white',
     position: 'absolute',
-    width: width,
+    width,
     height: 70,
     borderRadius: 5,
   },

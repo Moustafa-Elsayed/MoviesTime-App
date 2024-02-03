@@ -16,20 +16,20 @@ import {useNavigation} from '@react-navigation/native';
 const MoviesList = ({title, data}) => {
   const navigation = useNavigation();
   return (
-    <View
-      >
+    <View>
       <View
         style={{
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          paddingBottom: 4,
+          paddingBottom: 10,
+          paddingTop:10
         }}>
         <Text
           style={{
             color: COLORS.white,
-            fontSize:width>500?SIZES.xLarge : SIZES.large ,
+            fontSize: width > 500 ? SIZES.xLarge : SIZES.large,
             fontFamily: FONTS.bold,
             paddingHorizontal: 10,
           }}>
@@ -40,7 +40,7 @@ const MoviesList = ({title, data}) => {
             <Text
               style={{
                 color: 'orange',
-                fontSize:width>500?SIZES.xLarge : SIZES.large ,
+                fontSize: width > 500 ? SIZES.xLarge : SIZES.large,
                 paddingHorizontal: 10,
                 fontFamily: FONTS.semiBold,
               }}>
@@ -54,8 +54,7 @@ const MoviesList = ({title, data}) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{paddingHorizontal: 10}}
-          style={{
-          }}>
+          style={{}}>
           {data.map((item, index) => (
             <TouchableOpacity
               key={index}
@@ -81,6 +80,7 @@ const MoviesList = ({title, data}) => {
                     fontFamily: FONTS.medium,
                     textAlign: 'center',
                     fontSize: width > 500 ? 20 : 15,
+                    paddingBottom: title === 'Top Rated' ? 80 : 0,
                   }}>
                   {item?.title && item.title.length > 15
                     ? `${item.title.slice(0, 10)}...`

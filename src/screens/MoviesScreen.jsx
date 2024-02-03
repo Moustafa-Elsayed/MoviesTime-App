@@ -153,7 +153,7 @@ const MoviesScreen = () => {
           </Text>
         </View>
         {/* cast */}
-        <Cast cast={cast} navigation={navigation}  />
+        <Cast cast={cast} navigation={navigation} />
         {/* similiar movies */}
         {/* <MoviesList
           title="Similar Movies"

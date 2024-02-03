@@ -2,7 +2,7 @@ import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 const Cast = ({cast, navigation}) => {
   return (
-    <View style={{marginVertical: 6}}>
+    <View style={{marginVertical: 6,paddingBottom:80}}>
       <Text
         style={{
           fontSize: 25,
