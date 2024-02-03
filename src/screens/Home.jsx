@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.bg,
     paddingVertical: 10,
-    paddingTop: StatusBar.currentHeight + 10  },
+    paddingTop: StatusBar.currentHeight + 10,
+  },
   upperContent: {
     display: 'flex',
     flexDirection: 'row',

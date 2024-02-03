@@ -64,6 +64,7 @@ const AppNavigation = () => {
           />
           <Tab.Screen
             options={{
+           
               tabBarIcon: ({focused}) => (
                 <Icon
                   name="file-movie-o"
@@ -85,8 +86,13 @@ const AppNavigation = () => {
               //     color={focused ? '#0071ff' : 'gray'}
               //   />
               // ),
-              tabBarButton: () => null, 
-
+              tabBarStyle: {
+                display: 'none', // Hide the entire tab bar
+              },
+              tabBarItemStyle: {
+                display: 'none', // Hide individual tab items
+              },
+              tabBarButton: () => null,
             }}
             name="Person"
             component={Person}
@@ -100,7 +106,7 @@ const AppNavigation = () => {
               //     color={focused ? '#0071ff' : 'gray'}
               //   />
               // ),
-              tabBarButton: () => null, 
+              tabBarButton: () => null,
             }}
             name="Search"
             component={Search}
@@ -115,7 +121,8 @@ export default AppNavigation;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.cardBg,
+    // backgroundColor: COLORS.cardBg,
+    backgroundColor: 'white',
     position: 'absolute',
     width: width,
     height: 70,
