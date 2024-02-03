@@ -64,7 +64,6 @@ const AppNavigation = () => {
           />
           <Tab.Screen
             options={{
-           
               tabBarIcon: ({focused}) => (
                 <Icon
                   name="file-movie-o"
@@ -106,6 +105,12 @@ const AppNavigation = () => {
               //     color={focused ? '#0071ff' : 'gray'}
               //   />
               // ),
+              tabBarStyle: {
+                display: 'none', // Hide the entire tab bar
+              },
+              tabBarItemStyle: {
+                display: 'none', // Hide individual tab items
+              },
               tabBarButton: () => null,
             }}
             name="Search"
