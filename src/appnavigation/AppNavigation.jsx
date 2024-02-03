@@ -126,12 +126,13 @@ export default AppNavigation;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.cardBg,
-    // backgroundColor: 'white',
+    // backgroundColor: COLORS.cardBg,
+    backgroundColor: 'white',
     position: 'absolute',
     width,
     height: 70,
-    borderRadius: 5,
+    borderTopLeftRadius:30,
+    borderTopRightRadius:30
   },
   item: {
     marginBottom: 5,
