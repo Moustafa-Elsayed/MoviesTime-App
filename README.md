@@ -1,5 +1,5 @@
 <h1 align="center">MoviesTime App</h1>
-<P>This is a MoviesTime App  build with:React Native cli,</P>
+<P>This is a MoviesTime App  build with:React Native cli,Vector icons,react-navigation...</P>
 <p align="center"><img src="https://i.ibb.co/QfqC6CQ/Screenshot-1706966683.png" width="400" height="800&quot;/" alt="project"></p>
 
 
@@ -39,7 +39,7 @@ yarn install
 
 Technologies used in the project:
 
-*  [React Native expo](https://nextjs.org/)
+*  [React Native cli](https://nextjs.org/)
 *  [Vector icons](https://react.dev/learn) 
 *  [react-navigation](https://tailwindcss.com/)  
 *  [react-native-reanimated](https://mui.com/material-ui/getting-started/) 
