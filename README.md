@@ -15,7 +15,7 @@
 <p>1. Clone the repository</p>
 
 ```
-git clone https://github.com/Moustafa-Elsayed/NFT-marketPlace.git
+git clone https://github.com/Moustafa-Elsayed/MoviesTime.git
 ```
 
 <p>2. Install npm modules</p>
@@ -28,7 +28,7 @@ yarn install
 <p>5. Check production build locally using below command</p>
 
 ```
-  yarn expo start
+  yarn build andrioid
 
  
 ```
@@ -43,6 +43,12 @@ Technologies used in the project:
 *  [Vector icons](https://react.dev/learn) 
 *  [react-navigation](https://tailwindcss.com/)  
 *  [react-native-reanimated](https://mui.com/material-ui/getting-started/) 
+*  [react-native-heroicons](https://mui.com/material-ui/getting-started/) 
+*  [react-native-progress](https://mui.com/material-ui/getting-started/) 
+*  [react-native-snap-carousel-v4](https://mui.com/material-ui/getting-started/) 
+*  [react-native-linear-gradient](https://mui.com/material-ui/getting-started/) 
+
+
 
 
 
