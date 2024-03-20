@@ -2,8 +2,6 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 const Splash = () => {
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Splash</Text>
@@ -23,6 +21,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 50,
     color: 'orange',
-    fontFamily:"Roboto-Bold"
+    fontFamily: 'Roboto-Bold',
   },
 });
